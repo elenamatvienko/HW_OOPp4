@@ -83,6 +83,8 @@ public abstract class Transport implements Сompeting {
     public String toString() {
         return brand + " " + model + " " + "engineVolume = " + engineVolume;
     }
+    public abstract void printType();
+
 }
 
 
