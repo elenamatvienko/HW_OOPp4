@@ -1,7 +1,18 @@
-public class Truck extends Transport <DriverC> {
+public class Truck extends Transport<DriverC> {
 
-    public Truck(String brand, String model, double engineVolume, DriverC driver) {
+    private LoadCapacity loadCapacity;
+
+    public Truck(String brand, String model, double engineVolume, DriverC driver, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume, driver);
+        this.loadCapacity = loadCapacity;
+    }
+
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    public void setLoadCapacity(LoadCapacity loadCapacity) {
+        this.loadCapacity = loadCapacity;
     }
 
     public void startMoving() {
@@ -11,7 +22,6 @@ public class Truck extends Transport <DriverC> {
     public void finishMovement() {
         System.out.println("Грузовик марки " + getBrand() + " закончил движение");
     }
-
 
 
     @Override
@@ -35,5 +45,20 @@ public class Truck extends Transport <DriverC> {
         System.out.println("Максимальная скорость грузовика " + maxSpeed + " км/ч");
     }
 
+    @Override
+    public void printType() {
+        if (loadCapacity == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println("Грузоподъемность: от " + loadCapacity.getMinWeight() + "тонн до "
+                    + loadCapacity.getMaxWeight() + "тонн");
+        }
+    }
 
+    @Override
+    public String toString() {
+        return "Truck{" +
+                "loadCapacity=" + loadCapacity +
+                '}';
+    }
 }
