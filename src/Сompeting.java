@@ -1,9 +1,8 @@
 public interface Сompeting {
-    String [] getСompetingResult();
 
-    String [] getAllResult();
-    void competing (String result);
+    void pinStop ();
+    void bestLapTime ();
+    void maximumSpeed ();
 
-    void receivedResult (String result);
 
   }

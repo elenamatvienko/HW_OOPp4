@@ -1,56 +1,40 @@
-public class Bus extends Transport {
+public class Bus extends Transport <DriverD>{
 
-    private final String capacity;
 
-    public Bus(String brand, String model, double engineVolume, Capacity capacity) {
-        super(brand, model, engineVolume);
-        this.capacity = String.valueOf(capacity);
+    public Bus(String brand, String model, double engineVolume, DriverD driver) {
+        super(brand, model, engineVolume, driver);
     }
 
     public void startMoving() {
-        System.out.println("Начать движение");
+        System.out.println("Автобус марки " + getBrand() + " начал движение");
     }
 
     public void finishMovement() {
-        System.out.println("Закончить движение");
+        System.out.println("Автобус марки " + getBrand() + " закончил движение");
+    }
+
+
+
+
+    @Override
+    public void pinStop() {
+        System.out.println("Пит-стоп у автобуса");
     }
 
     @Override
-    public void printType() {
-        if (capacity == null) {
-            System.out.println("Данных по транспортному средству недостаточно");
-        } else {
-            System.out.println("Вместимость: " + capacity);
-        }
+    public void bestLapTime() {
+        int minLevel = 60;
+        int maxLevel = 90;
+        int bestLapTimeMin = (int) (minLevel + (maxLevel - minLevel) * Math.random());
+        System.out.println("Лучшее время круга для автобуса " + bestLapTimeMin + "минут");
     }
 
-    public enum Capacity {
-        ESPECIALLY_SMALL(null, 10),
-        SMALL(null, 25),
-        AVERAGE(40, 50),
-        BIG(60, 80),
-        ESPECIALLY_BIG(100, 120);
-
-        private final Integer minQuantity;
-        private final Integer maxQuantity;
-
-        Capacity(Integer minQuantity, Integer maxQuantity) {
-            this.minQuantity = minQuantity;
-            this.maxQuantity = maxQuantity;
-        }
-
-        @Override
-        public String toString() {
-            return "Вместимость: " + minQuantity + " - " + maxQuantity + " мест.";
-        }
-
-        public Integer getMinQuantity() {
-            return minQuantity;
-        }
-
-        public Integer getMaxQuantity() {
-            return maxQuantity;
-        }
+    @Override
+    public void maximumSpeed() {
+        int minLevel = 90;
+        int maxLevel = 120;
+        int maxSpeed = (int) (minLevel + (maxLevel - minLevel) * Math.random());
+        System.out.println("Максимальная скорость автобуса " + maxSpeed + " км/ч");
     }
 
-}
+  }

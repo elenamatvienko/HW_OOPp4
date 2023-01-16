@@ -1,17 +1,12 @@
-public class Driver <T extends Transport & Сompeting> {
+public abstract class Driver {
     private String name;
-    private String drivLicense;
+    private boolean hasDriverLicense;
     private int experience;
 
-    public Driver(String name, String drivLicense, int experience) {
+    public Driver(String name, boolean hasDriverLicense, int experience) {
         this.name = name;
-        this.drivLicense = drivLicense;
+        this.hasDriverLicense = hasDriverLicense;
         this.experience = experience;
-    }
-    public void startMoving (T transport){
-
-        System.out.println ("Водитель " + getName() + " управляет автомобилем " + transport.getBrand() + " "
-                + transport.getModel() + "и будет участвовать в заезде");
     }
 
     public String getName() {
@@ -22,12 +17,12 @@ public class Driver <T extends Transport & Сompeting> {
         this.name = name;
     }
 
-    public String getDrivLicense() {
-        return drivLicense;
+    public boolean isHasDriverLicense() {
+        return hasDriverLicense;
     }
 
-    public void setDrivLicense(String drivLicense) {
-        this.drivLicense = drivLicense;
+    public void setHasDriverLicense(boolean hasDriverLicense) {
+        this.hasDriverLicense = hasDriverLicense;
     }
 
     public int getExperience() {
@@ -37,4 +32,8 @@ public class Driver <T extends Transport & Сompeting> {
     public void setExperience(int experience) {
         this.experience = experience;
     }
+
+    public abstract void startMove();
+    public abstract void finishMove();
+    public abstract void refuel();
 }

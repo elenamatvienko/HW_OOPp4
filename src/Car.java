@@ -1,60 +1,44 @@
-public class Car extends Transport {
+public class Car extends Transport <DriverB>{
 
-    private final String bodyType;
 
-    public Car(String brand, String model, double engineVolume, BodyType bodyType) {
-        super(brand, model, engineVolume);
-        this.bodyType = String.valueOf(bodyType);
+    public Car(String brand, String model, double engineVolume, DriverB driver) {
+        super(brand, model, engineVolume, driver);
     }
 
 
     public void startMoving() {
 
-        System.out.println("Начать движение");
+        System.out.println("Автомобиль марки " + getBrand() + " начал движение");
     }
 
     public void finishMovement() {
 
-        System.out.println("Закончить движение");
+        System.out.println("Автомобиль марки " + getBrand() + " закончил вижение");
+    }
+
+
+
+    @Override
+    public void pinStop() {
+        System.out.println("Пит-стоп у автомобиля");
     }
 
     @Override
-    public void printType() {
-        if (bodyType == null) {
-            System.out.println("Данных по транспортному средству недостаточно");
-        } else {
-            System.out.println("Тип кузова: " + bodyType);
-        }
+    public void bestLapTime() {
+        int minLevel = 20;
+        int maxLevel = 40;
+        int bestLapTimeMin = (int) (minLevel + (maxLevel - minLevel) * Math.random());
+        System.out.println("Лучшее время круга для автомобиля " + bestLapTimeMin + "минут");
     }
 
-
-    public enum BodyType {
-        SEDAN("Седан"),
-        HATCHBACK("Хетчбек"),
-        COUPE("Купе"),
-        UNIVERSAL("Универсал"),
-        SUV("Внедорожник"),
-        CROSSOVER("Кроссовер"),
-        PICKUP("Пикап"),
-        VAN("Фургон"),
-        MINIVAN("Минивэн");
-
-        private final String type;
-
-        BodyType(String type) {
-            this.type = type;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        @Override
-        public String toString() {
-            return "Тип кузова: " + type;
-        }
-
+    @Override
+    public void maximumSpeed() {
+        int minLevel = 120;
+        int maxLevel = 180;
+        int maxSpeed = (int) (minLevel + (maxLevel - minLevel) * Math.random());
+        System.out.println("Максимальная скорость автомобиля " + maxSpeed + " км/ч");
     }
+
 }
 
 

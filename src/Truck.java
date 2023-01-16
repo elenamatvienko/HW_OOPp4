@@ -1,53 +1,39 @@
-public class Truck extends Transport {
+public class Truck extends Transport <DriverC> {
 
-    private final String loadCapacity;
-
-    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity) {
-        super(brand, model, engineVolume);
-        this.loadCapacity = String.valueOf(loadCapacity);
+    public Truck(String brand, String model, double engineVolume, DriverC driver) {
+        super(brand, model, engineVolume, driver);
     }
 
     public void startMoving() {
-        System.out.println("Начать движение");
+        System.out.println("Грузовик марки " + getBrand() + " начал движение");
     }
 
     public void finishMovement() {
-        System.out.println("Закончить движение");
+        System.out.println("Грузовик марки " + getBrand() + " закончил движение");
+    }
+
+
+
+    @Override
+    public void pinStop() {
+        System.out.println("Пит-стоп у грузовика");
     }
 
     @Override
-    public void printType() {
-        if (loadCapacity == null) {
-            System.out.println("Данных по транспортному средству недостаточно");
-        } else {
-            System.out.println("Грузопдъемность: " + loadCapacity);
-        }
+    public void bestLapTime() {
+        int minLevel = 40;
+        int maxLevel = 90;
+        int bestLapTimeMin = (int) (minLevel + (maxLevel - minLevel) * Math.random());
+        System.out.println("Лучшее время круга для грузовика " + bestLapTimeMin + "минут");
     }
 
-    public enum LoadCapacity {
-        N1(null, 3.5f),
-        N2(3.5f, 12.0f),
-        N3(12.0f, null);
-        private final Float minWeight;
-        private final Float maxWeight;
-
-        LoadCapacity(Float minWeight, Float maxWeight) {
-            this.minWeight = minWeight;
-            this.maxWeight = maxWeight;
-        }
-
-
-        @Override
-        public String toString() {
-            return "Грузопдъемность: от " + minWeight + " тонн до " + maxWeight + " тонн";
-        }
-
-        public Float getMinWeight() {
-            return minWeight;
-        }
-
-        public Float getMaxWeight() {
-            return maxWeight;
-        }
+    @Override
+    public void maximumSpeed() {
+        int minLevel = 90;
+        int maxLevel = 130;
+        int maxSpeed = (int) (minLevel + (maxLevel - minLevel) * Math.random());
+        System.out.println("Максимальная скорость грузовика " + maxSpeed + " км/ч");
     }
+
+
 }
