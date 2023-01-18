@@ -59,15 +59,20 @@ public abstract class Transport <T extends Driver> implements Сompeting {
 
     public abstract void finishMovement ();
 
+    public abstract void passDiagnostics();
+
     @Override
     public String toString() {
         return brand + " " + model + " " + "engineVolume = " + engineVolume;
     }
+
     public static void printInfo(Transport transport){
+
         System.out.println("Водитель " + transport.getDriver().getName() + " управляет автомобилем " +
                 transport.getBrand()  + " и будет участвовать в заезде");
     }
-    public abstract void printType();
+    public abstract  void printType();
+
 
 }
 

@@ -61,4 +61,9 @@ public class Truck extends Transport<DriverC> {
                 "loadCapacity=" + loadCapacity +
                 '}';
     }
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Грузовику " + getBrand() + " " + getModel() + " необходимо пройти диагностику");
+
+    }
 }

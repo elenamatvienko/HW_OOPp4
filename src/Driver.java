@@ -1,6 +1,6 @@
 public abstract class Driver {
     private String name;
-    private boolean hasDriverLicense;
+    private boolean hasDriverLicense;;
     private int experience;
 
     public Driver(String name, boolean hasDriverLicense, int experience) {
@@ -33,7 +33,21 @@ public abstract class Driver {
         this.experience = experience;
     }
 
-    public abstract void startMove();
+    public void takeDriversLicense() throws NotHasDriverLicense {
+        System.out.println("У водителя " + getName() + " есть права");
+    }
+    public abstract void startMove() ;
     public abstract void finishMove();
     public abstract void refuel();
+
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "name='" + name + '\'' +
+                ", typeOfDriversLicense=" + hasDriverLicense +
+                ", experience=" + experience +
+                '}';
+    }
 }
+

@@ -23,6 +23,11 @@ public class Bus extends Transport<DriverD> {
         System.out.println("Автобус марки " + getBrand() + " закончил движение");
     }
 
+    @Override
+    public void passDiagnostics() {
+    throw new UnsupportedOperationException ("Автобусы диагностику проходить не могут");
+    }
+
 
     @Override
     public void pinStop() {
@@ -49,8 +54,8 @@ public class Bus extends Transport<DriverD> {
         if (capacity == null) {
             System.out.println("Данных по транспортному средству недостаточно");
         }else {
-            System.out.println("Вместимость: " + capacity.getFrom() + " - "
-                    + capacity.getTo() + "мест");
+            System.out.println("Вместимость: " + capacity.getMinQuantity() + " - "
+                    + capacity.getMaxQuantity() + "мест");
         }
     }
 

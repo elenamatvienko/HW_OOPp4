@@ -1,5 +1,5 @@
 public enum BodyType {
-    SEDAN("Седан"),
+    SEDAN ("Седан"),
     HATCHBACK("Хетчбек"),
     COUPE("Купе"),
     UNIVERSAL("Универсал"),

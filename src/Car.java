@@ -51,9 +51,15 @@ public class Car extends Transport<DriverB> {
         if (bodyType == null){
             System.out.println("Данных по транспортному средству недостаточно");
         } else {
-            System.out.println("Тип кузова: " + bodyType);
+            System.out.println("Тип кузова: " + getBodyType());
         }
     }
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Автомобилю " + getBrand() + " " + getModel() + " необходимо пройти диагностику");
+
+    }
+
 
 
 }
