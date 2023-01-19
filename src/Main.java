@@ -1,4 +1,6 @@
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,15 +29,14 @@ public class Main {
         DriverD driverD2 = new DriverD("Егоров Василий Дмитриевич", false, 10);
         DriverD driverD3 = new DriverD("Дмитриев Василй Егорович", true, 9);
         DriverD driverD4 = new DriverD("Васильев Дмитрий Егорович", true, 10);
-        driverD4.isHasDriverLicense();
-        driverD4.startMove();
+
 
         Bus bus1 = new Bus("Ikarus ", "280", 11, driverD1, null);
         Bus bus2 = new Bus("Scania ", "Citywide", 10, driverD2, Capacity.SMALL);
         Bus bus3 = new Bus("MAN", "Lion's Coach", 11, driverD3, Capacity.LARGE);
         Bus bus4 = new Bus("ПАЗ", "3205", 10, driverD4, Capacity.MEDIUM);
 
-        Transport.printInfo(car1);
+       /* Transport.printInfo(car1);
         Transport.printInfo(car2);
         Transport.printInfo(car3);
         Transport.printInfo(car4);
@@ -53,9 +54,50 @@ public class Main {
 
         passDiagnostics(car1, truck3, bus2);
         System.out.println();
-        takeDriversLicense(driverB1, driverB2, driverC1, driverC2, driverD1, driverD2);
-    }
+        takeDriversLicense(driverB1, driverB2, driverC1, driverC2, driverD1, driverD2);*/
 
+        Mechanic<Car>AntonAntonovich = new Mechanic<>("Антон Антонович Антонов", "Автосервис",
+                "Легковые автомобили");
+        Mechanic<Bus>BorisBorisovich = new Mechanic<>("Борис Борисович Борисов","Ремонт автобусов",
+                "Автобусы");
+        Mechanic<Truck>EgorEgorovich = new Mechanic<>("Егор Егорович Егоров", "Ремонт грузовиков",
+                "Грузовые автомобили");
+
+        AntonAntonovich.addTechnic(car1);
+        AntonAntonovich.performMaintenance();
+        AntonAntonovich.addTechnic(car3);
+        AntonAntonovich.repairOfEquipment();
+        System.out.println();
+        BorisBorisovich.addTechnic(bus1);
+        BorisBorisovich.performMaintenance();
+        BorisBorisovich.addTechnic(bus4);
+        BorisBorisovich.repairOfEquipment();
+        System.out.println();
+        EgorEgorovich.addTechnic(truck1);
+        EgorEgorovich.performMaintenance();
+        EgorEgorovich.addTechnic(truck3);
+        EgorEgorovich.repairOfEquipment();
+        System.out.println();
+
+        car1.addDriver(driverB1);
+        bus1.addDriver(driverD1);
+        truck1.addDriver(driverC1);
+        Mechanic mechanic1 = new Mechanic<>("Антон Антонович Антонов", "Автосервис",
+                "Легковые автомобили");
+        Mechanic mechanic2 = new Mechanic("Борис Борисович Борисов","Ремонт автобусов",
+                "Автобусы");
+        Mechanic mechanic3 = new Mechanic("Егор Егорович Егоров", "Ремонт грузовиков",
+                "Грузовые автомобили");
+        System.out.println("У автомобиля " + car1.getBrand()+ " " + car1.getModel() + " водитель: " + driverB1.getName() +
+                ", механик: " + mechanic1.getName());
+        System.out.println("У автобуса " + bus1.getBrand()+ " " + bus1.getModel() + " водитель: " + driverD1.getName() +
+                ", механик: " + mechanic2.getName());
+        System.out.println("У грузовика " + truck1.getBrand()+ " " + truck1.getModel() + " водитель: " + driverC1.getName() +
+                ", механик: " + mechanic3.getName());
+
+
+
+    }
     public static void passDiagnostics(Transport... transports) {
         for (Transport transport : transports) {
             try {

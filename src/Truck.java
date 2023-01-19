@@ -55,12 +55,7 @@ public class Truck extends Transport<DriverC> {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Truck{" +
-                "loadCapacity=" + loadCapacity +
-                '}';
-    }
+
     @Override
     public void passDiagnostics() {
         System.out.println("Грузовику " + getBrand() + " " + getModel() + " необходимо пройти диагностику");

@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public abstract class Transport <T extends Driver> implements Сompeting {
 
@@ -18,6 +20,48 @@ public abstract class Transport <T extends Driver> implements Сompeting {
         this.model = model;
         setEngineVolume(engineVolume);
         setDriver(driver);
+    }
+    private List<Transport> transports = new ArrayList<>();
+    private List<Driver>drivers = new ArrayList<>();
+    private List<Mechanic>mechanics = new ArrayList<>();
+
+    public Transport(List<Transport> transports, List<Driver> drivers, List<Mechanic> mechanics) {
+        this.transports = transports;
+        this.drivers = drivers;
+        this.mechanics = mechanics;
+    }
+    void addTransport(Transport transport){
+        transports.add(transport);
+    }
+    void addMechanic (Mechanic mechanic) {
+        mechanics.add(mechanic);
+    }
+    void addDriver(Driver driver) {
+        drivers.add(driver);
+    }
+
+    public List<Transport> getTransports() {
+        return transports;
+    }
+
+    public void setTransports(List<Transport> transports) {
+        this.transports = transports;
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(List<Driver> drivers) {
+        this.drivers = drivers;
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public void setMechanics(List<Mechanic> mechanics) {
+        this.mechanics = mechanics;
     }
 
     public String getBrand() {
