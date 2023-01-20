@@ -1,8 +1,8 @@
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) {
 
         DriverB driverB1 = new DriverB("Алиев Денис Витальевич", true, 5);
@@ -95,7 +95,17 @@ public class Main {
         System.out.println("У грузовика " + truck1.getBrand()+ " " + truck1.getModel() + " водитель: " + driverC1.getName() +
                 ", механик: " + mechanic3.getName());
 
+        HashMap<String, String> mechanic = new HashMap<>();
+        mechanic.put("Lada ", "Борис Борисович Борисов");
+        mechanic.put("Lada ", "Антон Антонович Антонов");
+        mechanic.put("Audi", "Егор Егорович Егоров");
+        mechanic.put("Audi", "Антон Антонович Антонов");
+        mechanic.put("КамАЗ", "Антон Антонович Антонов");
+        mechanic.put("КамАЗ", "Егор Егорович Егоров");
+        mechanic.put("Ikarus ", "Егор Егорович Егоров");
+        mechanic.put("Ikarus ", "Борис Борисович Борисов");
 
+        System.out.println(mechanic);
 
     }
     public static void passDiagnostics(Transport... transports) {

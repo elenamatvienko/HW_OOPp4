@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Transport <T extends Driver> implements Сompeting {
 
@@ -105,11 +106,6 @@ public abstract class Transport <T extends Driver> implements Сompeting {
 
     public abstract void passDiagnostics();
 
-    @Override
-    public String toString() {
-        return brand + " " + model + " " + "engineVolume = " + engineVolume;
-    }
-
     public static void printInfo(Transport transport){
 
         System.out.println("Водитель " + transport.getDriver().getName() + " управляет автомобилем " +
@@ -117,7 +113,30 @@ public abstract class Transport <T extends Driver> implements Сompeting {
     }
     public abstract  void printType();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && brand.equals(transport.brand) && model.equals(transport.model) && driver.equals(transport.driver);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, driver);
+    }
+
+    @Override
+    public String toString() {
+        return "Transport{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineVolume=" + engineVolume +
+                ", transports=" + transports +
+                ", drivers=" + drivers +
+                ", mechanics=" + mechanics +
+                '}';
+    }
 }
 
 
