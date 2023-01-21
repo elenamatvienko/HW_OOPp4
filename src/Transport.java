@@ -128,14 +128,7 @@ public abstract class Transport <T extends Driver> implements Сompeting {
 
     @Override
     public String toString() {
-        return "Transport{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", transports=" + transports +
-                ", drivers=" + drivers +
-                ", mechanics=" + mechanics +
-                '}';
+        return  brand + " " + model + " " + engineVolume + " " + drivers;
     }
 }
 

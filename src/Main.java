@@ -56,27 +56,27 @@ public class Main {
         System.out.println();
         takeDriversLicense(driverB1, driverB2, driverC1, driverC2, driverD1, driverD2);*/
 
-        Mechanic<Car>AntonAntonovich = new Mechanic<>("Антон Антонович Антонов", "Автосервис",
+        Mechanic<Car>antonAntonovich = new Mechanic<>("Антон Антонович Антонов", "Автосервис",
                 "Легковые автомобили");
-        Mechanic<Bus>BorisBorisovich = new Mechanic<>("Борис Борисович Борисов","Ремонт автобусов",
+        Mechanic<Bus>borisBorisovich = new Mechanic<>("Борис Борисович Борисов","Ремонт автобусов",
                 "Автобусы");
-        Mechanic<Truck>EgorEgorovich = new Mechanic<>("Егор Егорович Егоров", "Ремонт грузовиков",
+        Mechanic<Truck>egorEgorovich = new Mechanic<>("Егор Егорович Егоров", "Ремонт грузовиков",
                 "Грузовые автомобили");
 
-        AntonAntonovich.addTechnic(car1);
-        AntonAntonovich.performMaintenance();
-        AntonAntonovich.addTechnic(car3);
-        AntonAntonovich.repairOfEquipment();
+        antonAntonovich.addTechnic(car1);
+        antonAntonovich.performMaintenance();
+        antonAntonovich.addTechnic(car3);
+        antonAntonovich.repairOfEquipment();
         System.out.println();
-        BorisBorisovich.addTechnic(bus1);
-        BorisBorisovich.performMaintenance();
-        BorisBorisovich.addTechnic(bus4);
-        BorisBorisovich.repairOfEquipment();
+        borisBorisovich.addTechnic(bus1);
+        borisBorisovich.performMaintenance();
+        borisBorisovich.addTechnic(bus4);
+        borisBorisovich.repairOfEquipment();
         System.out.println();
-        EgorEgorovich.addTechnic(truck1);
-        EgorEgorovich.performMaintenance();
-        EgorEgorovich.addTechnic(truck3);
-        EgorEgorovich.repairOfEquipment();
+        egorEgorovich.addTechnic(truck1);
+        egorEgorovich.performMaintenance();
+        egorEgorovich.addTechnic(truck3);
+        egorEgorovich.repairOfEquipment();
         System.out.println();
 
         car1.addDriver(driverB1);
@@ -95,15 +95,15 @@ public class Main {
         System.out.println("У грузовика " + truck1.getBrand()+ " " + truck1.getModel() + " водитель: " + driverC1.getName() +
                 ", механик: " + mechanic3.getName());
 
-        HashMap<String, String> mechanic = new HashMap<>();
-        mechanic.put("Lada ", "Борис Борисович Борисов");
-        mechanic.put("Lada ", "Антон Антонович Антонов");
-        mechanic.put("Audi", "Егор Егорович Егоров");
-        mechanic.put("Audi", "Антон Антонович Антонов");
-        mechanic.put("КамАЗ", "Антон Антонович Антонов");
-        mechanic.put("КамАЗ", "Егор Егорович Егоров");
-        mechanic.put("Ikarus ", "Егор Егорович Егоров");
-        mechanic.put("Ikarus ", "Борис Борисович Борисов");
+        Map<Transport, Mechanic> mechanic = new HashMap<>();
+        mechanic.put(car1, mechanic2);
+        mechanic.put(car1, mechanic1);
+        mechanic.put(car2, mechanic3);
+        mechanic.put(car2, mechanic1);
+        mechanic.put(truck1, mechanic1);
+        mechanic.put(truck1, mechanic3);
+        mechanic.put(bus1, mechanic3);
+        mechanic.put(bus1, mechanic2);
 
         System.out.println(mechanic);
 

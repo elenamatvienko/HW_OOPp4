@@ -67,18 +67,7 @@ public class Mechanic<T extends Transport> {
         this.specialization = specialization;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Mechanic<?> mechanic = (Mechanic<?>) o;
-        return name.equals(mechanic.name) && company.equals(mechanic.company) && specialization.equals(mechanic.specialization) && Objects.equals(queue, mechanic.queue);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, company, specialization);
-    }
+    
 
     @Override
     public String toString() {
