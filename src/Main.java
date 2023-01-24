@@ -106,18 +106,18 @@ public class Main {
 
         System.out.println(mechanic);*/
 
-        Set<String> set = new HashSet<>();
-        set.add("Антон Антонович Антонов");
-        set.add("Борис Борисович Борисов");
-        set.add("Егор Егорович Егоров");
-        set.add("Антон Антонович Антонов");
-        set.add("Егор Егорович Егоров");
-        set.add("Борис Борисович Борисов");
-        set.add("Борис Борисович Борисов");
-        set.add("Егор Егорович Егоров");
+        Set<Driver> set = new HashSet<>();
+        set.add(driverB1);
+        set.add(driverB2);
+        set.add(driverC1);
+        set.add(driverC2);
+        set.add(driverD1);
+        set.add(driverB1);
+        set.add(driverC1);
+        set.add(driverD2);
         System.out.println(set);
 
-        Iterator<String> iter = set.iterator();
+        Iterator<Driver> iter = set.iterator();
         while(iter.hasNext()){
 
         System.out.println(iter.next());
