@@ -1,4 +1,3 @@
-import java.io.PrintStream;
 import java.util.*;
 
 public class Main {
@@ -6,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         DriverB driverB1 = new DriverB("Алиев Денис Витальевич", true, 5);
+        DriverB driverB5 = new DriverB("Алиев Денис Витальевич", true, 5);
         DriverB driverB2 = new DriverB("Андреев Борис Евгеньевич", false, 6);
         DriverB driverB3 = new DriverB("Фродлов Денис Игоревич", true, 5);
         DriverB driverB4 = new DriverB("Денисов Денис Витальевич", true, 6);
@@ -63,7 +63,7 @@ public class Main {
         Mechanic<Truck>egorEgorovich = new Mechanic<>("Егор Егорович Егоров", "Ремонт грузовиков",
                 "Грузовые автомобили");
 
-        antonAntonovich.addTechnic(car1);
+        /*antonAntonovich.addTechnic(car1);
         antonAntonovich.performMaintenance();
         antonAntonovich.addTechnic(car3);
         antonAntonovich.repairOfEquipment();
@@ -81,21 +81,21 @@ public class Main {
 
         car1.addDriver(driverB1);
         bus1.addDriver(driverD1);
-        truck1.addDriver(driverC1);
+        truck1.addDriver(driverC1);*/
         Mechanic mechanic1 = new Mechanic<>("Антон Антонович Антонов", "Автосервис",
                 "Легковые автомобили");
         Mechanic mechanic2 = new Mechanic("Борис Борисович Борисов","Ремонт автобусов",
                 "Автобусы");
         Mechanic mechanic3 = new Mechanic("Егор Егорович Егоров", "Ремонт грузовиков",
                 "Грузовые автомобили");
-        System.out.println("У автомобиля " + car1.getBrand()+ " " + car1.getModel() + " водитель: " + driverB1.getName() +
+     /*   System.out.println("У автомобиля " + car1.getBrand()+ " " + car1.getModel() + " водитель: " + driverB1.getName() +
                 ", механик: " + mechanic1.getName());
         System.out.println("У автобуса " + bus1.getBrand()+ " " + bus1.getModel() + " водитель: " + driverD1.getName() +
                 ", механик: " + mechanic2.getName());
         System.out.println("У грузовика " + truck1.getBrand()+ " " + truck1.getModel() + " водитель: " + driverC1.getName() +
-                ", механик: " + mechanic3.getName());
+                ", механик: " + mechanic3.getName());*/
 
-        Map<Transport, Mechanic> mechanic = new HashMap<>();
+       /* Map<Transport, Mechanic> mechanic = new HashMap<>();
         mechanic.put(car1, mechanic2);
         mechanic.put(car1, mechanic1);
         mechanic.put(car2, mechanic3);
@@ -105,7 +105,24 @@ public class Main {
         mechanic.put(bus1, mechanic3);
         mechanic.put(bus1, mechanic2);
 
-        System.out.println(mechanic);
+        System.out.println(mechanic);*/
+
+        Set<Driver> set = new HashSet<>();
+        set.add(driverB1);
+        set.add(driverB5);
+        set.add(driverC1);
+        set.add(driverC2);
+        set.add(driverD1);
+        set.add(driverB5);
+        set.add(driverC1);
+        set.add(driverD2);
+        System.out.println(set);
+
+        Iterator<Driver> iter = set.iterator();
+        while(iter.hasNext()){
+
+        System.out.println(iter.next());
+        }
 
     }
     public static void passDiagnostics(Transport... transports) {

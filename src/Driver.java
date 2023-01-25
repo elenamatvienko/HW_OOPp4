@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class Driver {
     private String name;
     private boolean hasDriverLicense;;
@@ -48,6 +50,19 @@ public abstract class Driver {
                 ", typeOfDriversLicense=" + hasDriverLicense +
                 ", experience=" + experience +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver driver = (Driver) o;
+        return name.equals(driver.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
 
