@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         DriverB driverB1 = new DriverB("Алиев Денис Витальевич", true, 5);
+        DriverB driverB5 = new DriverB("Алиев Денис Витальевич", true, 5);
         DriverB driverB2 = new DriverB("Андреев Борис Евгеньевич", false, 6);
         DriverB driverB3 = new DriverB("Фродлов Денис Игоревич", true, 5);
         DriverB driverB4 = new DriverB("Денисов Денис Витальевич", true, 6);
@@ -108,11 +109,11 @@ public class Main {
 
         Set<Driver> set = new HashSet<>();
         set.add(driverB1);
-        set.add(driverB2);
+        set.add(driverB5);
         set.add(driverC1);
         set.add(driverC2);
         set.add(driverD1);
-        set.add(driverB1);
+        set.add(driverB5);
         set.add(driverC1);
         set.add(driverD2);
         System.out.println(set);
